@@ -1,0 +1,54 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+*.pyc
+
+# Virtual environment
+venv/
+env/
+
+# macOS metadata
+.DS_Store
+
+# Docker
+*.log
+*.pid
+*.seed
+*.tar
+docker-compose.override.yml
+
+# Terraform
+*.tfstate
+*.tfstate.*
+.terraform/
+crash.log
+terraform.tfvars
+terraform.tfvars.json
+override.tf
+override.tf.json
+.terraform.lock.hcl
+
+# AWS credentials (never commit these)
+.aws/
+
+# VSCode / JetBrains
+.vscode/
+.idea/
+
+# Node/npm (if frontend expands)
+node_modules/
+
+# OS-generated files
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Logs
+logs/
+*.log
+
+# GitHub Actions temp files
+.github/workflows/*.bak
+.github/workflows/*.tmp
