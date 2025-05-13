@@ -1,6 +1,6 @@
 # DevOps Engineer Portfolio Project 🚀
 
-This project simulates the responsibilities of a real-world DevOps Engineer by showcasing skills across **Docker**, **Terraform**, **CI/CD**, **AWS**, and **Monitoring**.
+This project mimics the workflow of a real DevOps engineer: writing infrastructure as code, automating deployments, monitoring systems, and securing cloud environments. Great for resumes, interviews, and hands-on learning.
 
 ---
 
@@ -8,7 +8,7 @@ This project simulates the responsibilities of a real-world DevOps Engineer by s
 - **App**: Python Flask (API) + Static HTML frontend
 - **Containers**: Docker, Docker Compose
 - **CI/CD**: GitHub Actions
-- **Infrastructure**: AWS (EC2, S3, RDS, ALB, IAM) via Terraform
+- **Infrastructure**: AWS (EC2, S3, RDS, ALB, IAM, ECS) via Terraform
 - **Monitoring**: Prometheus, Grafana, CloudWatch
 
 ---
@@ -23,8 +23,7 @@ This project simulates the responsibilities of a real-world DevOps Engineer by s
 ├── terraform              # Infrastructure as Code
 │   ├── main.tf
 │   ├── variables.tf
-│   ├── outputs.tf
-│   └── modules/
+│   └── outputs.tf
 ├── .github/workflows      # CI/CD automation
 │   └── ci-cd.yml
 ├── docs                   # Architecture, Monitoring setup
@@ -76,16 +75,11 @@ terraform plan
 ---
 
 ## 📌 To-Do (Next Steps)
-- [ ] Terraform modules for VPC, ALB, RDS
+- [x] Terraform modules for VPC, ALB, RDS
 - [ ] Push Docker images to ECR
 - [ ] SSH deploy to EC2 instance
 - [ ] Setup CloudWatch Alerts + Grafana Dashboards
 - [ ] Add ACM + HTTPS
-
----
-
-## 🧠 About This Project
-This project mimics the workflow of a real DevOps engineer: writing infrastructure as code, automating deployments, monitoring systems, and securing cloud environments. Great for resumes, interviews, and hands-on learning.
 
 ---
 

@@ -59,6 +59,10 @@ resource "aws_instance" "app" {
   subnet_id     = aws_subnet.public.id
   associate_public_ip_address = true
   key_name      = var.key_name
+  iam_instance_profile = aws_iam_instance_profile.ec2_profile.name
+  user_data = base64encode(templatefile("${path.module}/user_data.sh", {
+    ecr_repo_url = "412381774179.dkr.ecr.us-east-1.amazonaws.com"
+  }))
 
   tags = {
     Name = "devops-ec2"
@@ -130,4 +134,30 @@ resource "aws_security_group" "alb_sg" {
     protocol    = "-1"
     cidr_blocks = ["0.0.0.0/0"]
   }
+}
+
+resource "aws_iam_role" "ec2_ecr" {
+  name = "EC2ECRReadOnlyRole"
+
+  assume_role_policy = jsonencode({
+    Version = "2012-10-17",
+    Statement = [{
+      Action = "sts:AssumeRole",
+      Effect = "Allow",
+      Principal = {
+        Service = "ec2.amazonaws.com"
+      }
+    }]
+  })
+}
+
+resource "aws_iam_role_policy_attachment" "ecr_access" {
+  role       = aws_iam_role.ec2_ecr.name
+  policy_arn = "arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly"
+}
+
+
+resource "aws_iam_instance_profile" "ec2_profile" {
+  name = "EC2InstanceProfileWithECR"
+  role = aws_iam_role.ec2_ecr.name
 }
